@@ -1,9 +1,16 @@
 # 📦 InventoryPro - Enterprise Inventory Management System
 
-A complete, production-quality **Inventory Management System** engineered with a modern full-stack architecture: **C# / ASP.NET Core Web API**, **MongoDB**, and **React (Vite) + Tailwind CSS**.
-
+A full-stack Inventory Management System built with React (Vite) + Tailwind CSS, ASP.NET Core 8 Web API and MongoDB. Admins can log in securely, manage products, update stock levels and monitor low-stock items from a clean, responsive dashboard.
 ---
 
+🛠️ Tech Stack & Tools
+
+* **Frontend:** React.js, HTML5, CSS3, JavaScript, Tailwind CSS 
+* **Backend:** ASP.NET Core 8 Web API
+* **Database:** MongoDB Atlas
+* **Tools & Version Control:** Git, GitHub, Visual Studio
+
+  
 ## 🏛️ System Architecture
 
 ```text
