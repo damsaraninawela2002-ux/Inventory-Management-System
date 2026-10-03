@@ -1,33 +1,25 @@
 # 📦 InventoryPro - Enterprise Inventory Management System
 
-A full-stack Inventory Management System built with React (Vite) + Tailwind CSS, ASP.NET Core 8 Web API and MongoDB. Admins can log in securely, manage products, update stock levels and monitor low-stock items from a clean, responsive dashboard.
----
+A simple full-stack inventory management app built with React, ASP.NET Core and MongoDB. I built it to practice connecting a React frontend to a C# Web API with JWT login and a MongoDB database.
 
-🛠️ Tech Stack & Tools
-
-* **Frontend:** React.js, HTML5, CSS3, JavaScript, Tailwind CSS 
-* **Backend:** ASP.NET Core 8 Web API
-* **Database:** MongoDB Atlas
-* **Tools & Version Control:** Git, GitHub, Visual Studio
+An admin can log in, add and edit products, update stock, and see which items are running low.
 
   
-## 🏛️ System Architecture
+## ✨ Features
 
-```text
-React (Vite + Tailwind CSS)
-        │
-        ▼ HTTP / REST (JWT Bearer Auth)
-ASP.NET Core Web API (Controllers, DI, Middleware)
-        │
-        ▼ MongoDB.Driver
-MongoDB Database (Users, Products Collections)
-```
+* Login with JWT authentication
+* Add, edit and delete products
+* Search products by name and filter by category
+* Update stock (add, remove or set a quantity), never below 0
+* Low-stock page for products at or below their threshold
+* Dashboard with total products, stock value, low-stock count and categories
+* Responsive layout with toast messages and delete confirmation
 
 ### Tech Stack
-- **Frontend**: React 18 (Vite), React Router v6, Axios (with Bearer & 401 interceptors), Tailwind CSS, Lucide Icons, Inter typography.
-- **Backend**: C# / ASP.NET Core Web API (.NET 8 / .NET 10 compatible), controller-based with dependency injection.
-- **Database**: MongoDB (official `MongoDB.Driver`).
-- **Security**: JWT Bearer token authentication, passwords securely hashed using `BCrypt.Net-Next`.
+- **Frontend**:React.js, Tailwind CSS, HTML5, CSS3, JavaScript, Tailwind CSS
+- **Backend**: C# , ASP.NET 
+- **Database**: MongoDB 
+- **Tools & Version Control:** Git, GitHub, Visual Studio
 
 ---
 
@@ -60,35 +52,6 @@ The connection string in `Backend/appsettings.json` is configured by default to:
 }
 ```
 
-#### Option B: MongoDB Atlas (Cloud)
-1. Create a free cluster on [MongoDB Atlas](https://cloud.mongodb.com/).
-2. **Network Access (IP Whitelist)**:
-   - Navigate to **Network Access** in the left sidebar.
-   - Click **Add IP Address**.
-   - Either select **Add Current IP Address** or add `0.0.0.0/0` (allow from anywhere) for development access. *If your IP is not whitelisted, the connection will time out.*
-3. **Database Access (User Credentials & URL-Encoding)**:
-   - Navigate to **Database Access** and verify your MongoDB user credentials.
-   - **IMPORTANT**: If your password contains special characters like `@`, `:`, `/`, `?`, `#`, `[`, `]`, or `%`, you **must URL-encode** them in the connection string:
-     - `@` &rarr; `%40`
-     - `:` &rarr; `%3A`
-     - `/` &rarr; `%2F`
-     - `?` &rarr; `%3F`
-     - `#` &rarr; `%23`
-     - `$` &rarr; `%24`
-     - `!` &rarr; `%21`
-   - *Example:* If password is `P@ssword123!`, encode as `P%40ssword123%21`.
-4. Obtain your connection URI from **Database > Connect > Drivers** (e.g. `mongodb+srv://adminUser:P%40ssword123%21@cluster0.abcde.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`).
-5. Update `ConnectionString` in `Backend/appsettings.json`:
-   ```json
-   "MongoDbSettings": {
-     "ConnectionString": "mongodb+srv://<username>:<encoded_password>@cluster0.abcde.mongodb.net/?retryWrites=true&w=majority",
-     "DatabaseName": "InventoryDB",
-     "ProductsCollectionName": "Products",
-     "UsersCollectionName": "Users"
-   }
-   ```
-
----
 
 ### 3. Backend API Setup & Launch
 
@@ -106,12 +69,6 @@ The connection string in `Backend/appsettings.json` is configured by default to:
    - **Interactive Swagger UI**: `http://localhost:5000/swagger`
    - **Health Check**: `http://localhost:5000/api/health`
 
-> **Note on Initial Run:**
-> Upon startup, the backend automatically seeds:
-> - A default administrator account: `admin` / `Admin@123`
-> - 10 realistic sample products across 3 distinct categories (Electronics, Furniture, Office Supplies) including low-stock items.
-
----
 
 ### 4. Frontend Setup & Launch
 
@@ -136,13 +93,7 @@ The connection string in `Backend/appsettings.json` is configured by default to:
 
 ---
 
-## 🔐 Default Authentication Credentials
 
-| Role | Username | Password | Notes |
-| :--- | :--- | :--- | :--- |
-| **Administrator** | `admin` | `Admin@123` | Click the **"Auto-fill"** button on the Login page for one-click access. |
-
----
 
 ## 📡 REST API Documentation
 
@@ -284,5 +235,12 @@ Inventory Management System/
 │   ├── tailwind.config.js             # Palette and design system
 │   └── vite.config.js                 # Vite dev server configuration (port 5173)
 │
-└── README.md                          # Comprehensive documentation
+└── README.md
+
+
+📄 License
+This project is open-source and available under the MIT License.
+
+
+     # Comprehensive documentation
 ```
